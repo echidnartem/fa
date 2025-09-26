@@ -67,9 +67,9 @@ int main(int argc, char * argv[]) {
             else printf("This number is composite\n");
             break;
         case 's':
-            char result2[32];
+            char result2[32] = {'0'};
             int index = s(result2, &number);
-            if (index == 31 && result2[31] == '0') printf("0");
+            if (number == 0) printf("0");
             else for (int i = index; i < 32; i++) printf("%c ", result2[i]);
             break;
         case 'e':
