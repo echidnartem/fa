@@ -85,8 +85,9 @@ int main(int argc, char * argv[]) {
             e(result3, &number);
             for (ll i = 0; i < 10 * number; i++) {
                 if (i != 0 && i % number == 0) printf("\n");
-                printf("%lld ", result3[i]);
+                printf("%lld\t", result3[i]);
             }
+            free(result3);
             break;
         case 'a':
             printf("%lld\n", a(&number));
