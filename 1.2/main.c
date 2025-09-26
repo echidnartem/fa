@@ -47,6 +47,7 @@ int main() {
     }
 
     free(primes);
+    free(values);
 
     return SUCCESS;
 }
