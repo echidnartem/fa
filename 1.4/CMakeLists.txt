@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.10)
+project(calculation_program C)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+
+add_executable(calculation_program 
+    main.c 
+    source/factorial.c
+    source/epsilon_calculation.c
+    source/gamma_calculation.c
+    source/pi_calculation.c
+    source/ln2_calculation.c
+    source/sqrt2_calculation.c
+)
+
+target_include_directories(calculation_program PRIVATE)
+
+target_link_libraries(calculation_program m)
