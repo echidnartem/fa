@@ -4,8 +4,7 @@
 enum {
     SUCCESS = 0,
     ERR_INVALID_NUMBER,
-    ERR_MEMORY_ALLOC,
-    ERR_INPUT
+    ERR_MEMORY_ALLOC
 };
 
 int main() {

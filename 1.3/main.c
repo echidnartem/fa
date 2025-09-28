@@ -108,7 +108,7 @@ int main(int argc, char * argv[]) {
                 }
 
                 if (m(&e, &f)) printf("The first number is a multiple of the second\n");
-                else printf("The first number is not a multiple of the second");
+                else printf("The first number is not a multiple of the second\n");
                 break;
             
             case 't':
