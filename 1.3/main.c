@@ -29,8 +29,7 @@ int main(int argc, char * argv[]) {
     switch(flag[1]) {
         case 'q':
             if (argc != 6) {
-                printf("Error: Expected 4 parameters, got %d\n", argc - 2);
-                usageq();
+                usageq(argc);
                 return ERR_INVALID_ARGC;
             }
             double e1, a, b, c;
@@ -95,8 +94,7 @@ int main(int argc, char * argv[]) {
             
             case 'm':
                 if (argc != 4) {
-                    printf("Error: Expected 2 parameters, got %d\n", argc - 2);
-                    usagem();
+                    usagem(argc);
                     return ERR_INVALID_ARGC;
                 }
                 int e, f;
@@ -113,8 +111,7 @@ int main(int argc, char * argv[]) {
             
             case 't':
                 if (argc != 6) {
-                    printf("Error: Expected 4 parameters, got %d\n", argc - 2);
-                    usaget();
+                    usaget(argc);
                     return ERR_INVALID_ARGC;
                 }
                 double e2, g, h, i;
