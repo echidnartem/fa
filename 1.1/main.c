@@ -93,6 +93,10 @@ int main(int argc, char * argv[]) {
             printf("%lld\n", a(&number));
             break;
         case 'f':
+            if (number > 20) {
+                printf("The number must not be more than 20\n");
+                break;
+            }
             printf("%lld\n", f(&number));
             break;
     }
