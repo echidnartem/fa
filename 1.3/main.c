@@ -42,7 +42,6 @@ int main(int argc, char * argv[]) {
             }
 
             double * solves;
-
             solves = q(&e1, &a, &b, &c);
             if (!solves) {
                 printf("Error: Failed to allocate memory\n");
@@ -51,45 +50,83 @@ int main(int argc, char * argv[]) {
             quadratic_equation_derivation(solves, &a, &b, &c);
             free(solves);
 
-            solves = q(&e1, &a, &c, &b);
-            if (!solves) {
-                printf("Error: Failed to allocate memory\n");
-                return ERR_MEMORY_ALLOC;
-            }
-            quadratic_equation_derivation(solves, &a, &c, &b);
-            free(solves);
+            if (!(a == b && b == c)) {
+                if (a == b) {
+                    solves = q(&e1, &a, &c, &b);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &a, &c, &b);
+                    free(solves);
 
-            solves = q(&e1, &c, &a, &b);
-            if (!solves) {
-                printf("Error: Failed to allocate memory\n");
-                return ERR_MEMORY_ALLOC;
-            }
-            quadratic_equation_derivation(solves, &c, &a, &b);
-            free(solves);
+                    solves = q(&e1, &c, &a, &b);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &c, &a, &b);
+                    free(solves);
 
-            solves = q(&e1, &c, &b, &a);
-            if (!solves) {
-                printf("Error: Failed to allocate memory\n");
-                return ERR_MEMORY_ALLOC;
-            }
-            quadratic_equation_derivation(solves, &c, &b, &a);
-            free(solves);
+                } else if (b == c) {
+                    solves = q(&e1, &c, &b, &a);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &c, &b, &a);
+                    free(solves);
 
-            solves = q(&e1, &b, &a, &c);
-            if (!solves) {
-                printf("Error: Failed to allocate memory\n");
-                return ERR_MEMORY_ALLOC;
-            }
-            quadratic_equation_derivation(solves, &b, &a, &c);
-            free(solves);
+                    solves = q(&e1, &b, &a, &c);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &b, &a, &c);
+                    free(solves);
 
-            solves = q(&e1, &b, &c, &a);
-            if (!solves) {
-                printf("Error: Failed to allocate memory\n");
-                return ERR_MEMORY_ALLOC;
+                } else {
+                    solves = q(&e1, &a, &c, &b);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &a, &c, &b);
+                    free(solves);
+
+                    solves = q(&e1, &c, &a, &b);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &c, &a, &b);
+                    free(solves);
+
+                    solves = q(&e1, &c, &b, &a);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &c, &b, &a);
+                    free(solves);
+
+                    solves = q(&e1, &b, &a, &c);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &b, &a, &c);
+                    free(solves);
+
+                    solves = q(&e1, &b, &c, &a);
+                    if (!solves) {
+                        printf("Error: Failed to allocate memory\n");
+                        return ERR_MEMORY_ALLOC;
+                    }
+                    quadratic_equation_derivation(solves, &b, &c, &a);
+                    free(solves);
+                }
             }
-            quadratic_equation_derivation(solves, &b, &c, &a);
-            free(solves);
             break;
             
             case 'm':
