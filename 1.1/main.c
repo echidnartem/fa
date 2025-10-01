@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <errno.h>
 #include <string.h>
 #include "include\flags.h"
 
@@ -26,9 +25,8 @@ int main(int argc, char * argv[]) {
         return ERR_INVALID_ARGC;
     }
 
-    errno = 0;
     char * endptr;
-    ll number = strtoll(argv[1], &endptr, 10);
+    unsigned long long input = strtoull(argv[1], &endptr, 10);
     
     if (*endptr != '\0' || endptr == argv[1] || argv[1][0] == '-') {
         printf("Error: Invalid number format: %s\n", argv[1]);
@@ -36,11 +34,13 @@ int main(int argc, char * argv[]) {
         return ERR_INVALID_NUMBER;
     }
     
-    if (errno == ERANGE) {
+    if (input > 9223372036854775807) {
         printf("Error: Number out of range: %s\n", argv[1]);
         usage();
         return ERR_NUMBER_TOO_LARGE;
     }
+
+    ll number = (ll)input;
 
     char * flag = argv[2];
 
