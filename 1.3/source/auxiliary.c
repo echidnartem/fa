@@ -5,17 +5,20 @@ void usage() {
     printf("Usage: <flag> <parameters>\n");
 }
 
-void usageq() {
+void usageq(int argc) {
+    printf("Error: Expected 4 parameters, got %d\n", argc - 2);
     printf("Usage: <flag> <parameters>\n");
     printf("Example: -q 0.0001 2.5 -3.0 1.2\n");
 }
 
-void usagem() {
+void usagem(int argc) {
+    printf("Error: Expected 2 parameters, got %d\n", argc - 2);
     printf("Usage: <flag> <parameters>\n");
     printf("Example: -m 20 10\n");
 }
 
-void usaget() {
+void usaget(int argc) {
+    printf("Error: Expected 4 parameters, got %d\n", argc - 2);
     printf("Usage: <flag> <parameters>\n");
     printf("Example: -t 0.0001 2.5 3.0 1.2\n");
 }
