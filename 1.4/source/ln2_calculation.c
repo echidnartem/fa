@@ -29,8 +29,7 @@ double series_ln2(double precision) {
     double previous = series_ln2_calc(n++);
     double current = previous + series_ln2_calc(n++);
 
-    while (fabs(current - precision) >= precision) {
-        if (n == 40000) break;
+    while (fabs(current - previous) >= precision) {
         previous = current;
         current = previous + series_ln2_calc(n++);
     }
