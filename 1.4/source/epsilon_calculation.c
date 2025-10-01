@@ -20,22 +20,24 @@ double limit_e(double precision) {
 
 
 
-double series_e_calc(double n) {
-    return 1.0 / factorial(n);
+double series_e_calc(double previous, double n) {
+    return previous / n;
 }
 
 double series_e(double precision) {
-    double n = 0;
-    double previous = series_e_calc(n++);
-    double current = previous + series_e_calc(n++);
-
-    while (fabs(current - precision) >= precision) {
-        if (n == 40) break;
-        previous = current;
-        current = previous + series_e_calc(n++);
+    double n = 2.0;
+    double current = 1.0;
+    double result = 2.0;
+    
+    current = series_e_calc(current, n++);
+    result += current;
+    
+    while (fabs(current) >= precision) {
+        current = series_e_calc(current, n++);
+        result += current;
     }
-
-    return current;
+    
+    return result;
 }
 
 

@@ -36,8 +36,7 @@ double series_g(double precision) {
     double previous = series_g_calc(n++);
     double current = previous + series_g_calc(n++);
 
-    while (fabs(current - precision) >= precision) {
-        if (n == 40000) break;
+    while (fabs(series_g_calc(n + 1)) >= precision || fabs(series_g_calc(n)) >= precision || n < 40000) {
         previous = current;
         current = previous + series_g_calc(n++);
     }
