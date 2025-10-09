@@ -1,7 +1,6 @@
 #include "..\include\functions.h"
 
 
-
 void usage(int argc) {
     printf("Error: Invalid number of parameters (%d)\n", argc - 1);
     printf("Usage: <input_file> <output_file>\n");
@@ -18,6 +17,8 @@ int search_mns(char * number, int length) {                    // ns = number sy
             cns = (c - '0') + 1;
         } else if (c >= 'A' && c <= 'Z') {
             cns = (c - 'A') + 11;
+        } else  if (c == '-') {
+            continue;
         } else {
             return -1;
         }
@@ -34,6 +35,7 @@ int mns_to_dns(char * number, int length, int mns) {           // dns = decimal 
     char c;
     for (int i = 0; i < length; ++i) {
         c = toupper(number[i]);
+        if (c == '-') continue;
         if (c >= '0' && c <= '9') {
             r = c - '0';
         } else r = (c - 'A') + 10; 
@@ -48,6 +50,7 @@ void process_word(FILE * output, char * number, int index) {
     if (mns == -1) fprintf(output, "%s \t What is this?\n", number);
     else {
         int answer = mns_to_dns(number, index, mns);
+        if (number[0] == '-') answer *= -1;
         fprintf(output, "%s \t %d \t %d\n", number, mns, answer);
     }
 }
