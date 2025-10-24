@@ -21,7 +21,7 @@ void parseSpec(const char * format, Flag * type, FormatFunc * outFunc) {
 
     char current[3] = {format[1], format[2], '\0'};
 
-    for (int i = 0; i < CUSTOM_COUNT; ++i) {
+    for (unsigned long long i = 0; i < CUSTOM_COUNT; ++i) {
         if (strcmp(CUSTOM_NAMES[i], current) == 0) {
             *type = NOT_STANDARD;
             *outFunc = CUSTOM_FUNCS[i];
