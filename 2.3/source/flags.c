@@ -112,6 +112,8 @@ static int getNum(char ch) {
 static Status validateNum(const char * n, int base, bool up) {
     if (!n || !n[0])
         return UNCORRECT_NUM;
+    
+    if (base < 2 || base > 36) return INVALID_BASE;
 
     int mx = 0;
     for (int i = (n[0] == '-'); n[i]; ++i) {
@@ -133,9 +135,6 @@ static Status validateNum(const char * n, int base, bool up) {
 static Status fromBase(char * buf, int * wr, va_list l, bool up) {
     char * n = va_arg(l, char*);
     int base = va_arg(l, int);
-
-    if (base < 2 || base > 36)
-        base = 10;
 
     Status cor = validateNum(n, base, up);
     if (cor != SUCCESS)
