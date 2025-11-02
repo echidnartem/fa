@@ -16,6 +16,7 @@ typedef enum {
     CANNOT_BE_ROMAN,
     VSPF_ERROR,
     NOT_IN_BASE,
+    INVALID_BASE,
     HAS_EXCEPTION,
     UNCORRECT_NUM,
     LONG_OVERFLOW,
