@@ -9,6 +9,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
 add_executable(bits_program 
     main.c 
     source/function.c
+    testing/tests.c
 )
 
 target_include_directories(bits_program  PRIVATE)
