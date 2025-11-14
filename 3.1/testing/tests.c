@@ -1,5 +1,4 @@
 #include "../include/tests.h"
-#include "../include/function.h" 
 
 
 void run_test(const char * title, unsigned int number, int r, const char * expected) {

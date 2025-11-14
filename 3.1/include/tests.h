@@ -4,9 +4,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "function.h" 
 
-
-void translate_to_base(unsigned int number, int r, char *output);
 
 void test_r1();
 void test_r2();
